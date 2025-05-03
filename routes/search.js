@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const weaviate = require("weaviate-client");
+require('dotenv').config();
 
 const client = weaviate.client({
   scheme: 'http',
   host: 'localhost:8080',
+    headers: {
+        "X-OpenAI-Api-Key": process.env.OPENAI_API_KEY || ""
+    }
 });
 
 function buildFilter(queryParams) {

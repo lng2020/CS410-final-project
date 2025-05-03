@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const weaviate = require("weaviate-client");
+require('dotenv').config();
 
 const client = weaviate.client({
   scheme: 'http',
   host: 'localhost:8080',
+  header: {
+    "X-OpenAI-Api-Key": process.env.OPENAI_API_KEY || ""
+  }
 });
 
 router.get('/similar/:id', async (req, res) => {
@@ -16,7 +20,7 @@ router.get('/similar/:id', async (req, res) => {
       .withClassName('Movies')
       .withFields(['title'])
       .withWhere({
-        path: ["id"],
+        path: ["movie_id"],
         operator: "Equal",
         valueString: movieId
       })
@@ -33,7 +37,7 @@ router.get('/similar/:id', async (req, res) => {
       .withClassName('Movies')
       .withFields(['movie_id', 'title', 'genres', 'overview', 'popularity', 'runtime', 'tagline'])
       .withNearObject({
-        movie_id: movieId,
+        id: movieId,
         certainty: 0.7
       })
       .withLimit(5)
