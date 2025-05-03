@@ -1,0 +1,91 @@
+<%- include('partials/header') %>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-lg-8 mx-auto text-center">
+      <div class="hero-section py-5">
+        <h1 class="display-4 mb-4">Discover Your Next Favorite Movie</h1>
+        <p class="lead mb-4">Search for movies using advanced semantic technology that understands what you're looking for.</p>
+        
+        <div class="search-container">
+          <form id="searchForm" action="/search" method="POST">
+            <div class="input-group mb-3">
+              <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Try 'sci-fi movies with time travel' or 'romantic comedies in Paris'" name="searched_data">
+              <select id="searchType" name="searchType" class="form-select form-select-lg" style="max-width: 180px;">
+                <option value="keyword">Keyword</option>
+                <option value="semantic" selected>Semantic</option>
+                <option value="hybrid">Hybrid</option>
+              </select>
+              <button class="btn btn-primary btn-lg" type="submit">
+                <i class="fas fa-search me-1"></i>Search
+              </button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="search-types-info mt-4">
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <div class="card bg-dark h-100">
+                <div class="card-body">
+                  <h5><i class="fas fa-font me-2"></i>Keyword Search</h5>
+                  <p class="text-muted">Find exact matches for terms in movie titles, descriptions, and keywords.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card bg-dark h-100">
+                <div class="card-body">
+                  <h5><i class="fas fa-brain me-2"></i>Semantic Search</h5>
+                  <p class="text-muted">Understand the meaning behind your query to find conceptually related movies.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card bg-dark h-100">
+                <div class="card-body">
+                  <h5><i class="fas fa-exchange-alt me-2"></i>Hybrid Search</h5>
+                  <p class="text-muted">Combines the precision of keyword search with the understanding of semantic search.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mt-5">
+    <div class="col-12">
+      <h2 class="text-center mb-4">
+        <i class="fas fa-magic me-2"></i>Personalized Recommendations
+      </h2>
+      <div id="recommendationsContainer">
+        <!-- Recommendations will be loaded here -->
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mt-5">
+    <div class="col-lg-6">
+      <div class="card bg-dark">
+        <div class="card-body">
+          <h3 class="mb-3">About This Project</h3>
+          <p>This movie recommendation system uses Weaviate, an open-source vector database, to enable powerful semantic search capabilities. The system helps users discover movies through natural language queries and provides personalized recommendations based on their search history and viewing patterns.</p>
+          <p>Built as a final project at University of Illinois Urbana-Champaign, it demonstrates the integration of vector embeddings, machine learning, and user-centric design.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card bg-dark">
+        <div class="card-body">
+          <h3 class="mb-3">How It Works</h3>
+          <p>When you search for movies, your query is converted into a vector embedding - a mathematical representation of its meaning. This embedding is compared to the embeddings of movies in our database, finding the most conceptually similar matches.</p>
+          <p>Your search and viewing history is stored locally in your browser and used to generate personalized recommendations. The more you interact with the system, the better your recommendations become!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
