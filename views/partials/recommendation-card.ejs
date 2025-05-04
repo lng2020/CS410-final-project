@@ -1,27 +1,33 @@
 <div class="movie-card">
   <div class="card-body">
     <h6 class="movie-title"><%= movie.title %></h6>
-    <div class="mb-2">
-      <% if (movie.genres) { %>
-        <% const genreList = typeof movie.genres === 'string' ? movie.genres.split(',') : movie.genres; %>
-        <% genreList.slice(0, 3).forEach(function (genre) { %>
-          <span class="genre-badge"><%= genre.trim() %></span>
-        <% }); %>
-        <% if (genreList.length > 3) { %>
-          <span class="genre-badge">+<%= genreList.length - 3 %></span>
+    
+    <!-- Bottom content area - will stick to bottom regardless of title length -->
+    <div class="card-bottom-content">
+      <div class="genre-badges mb-2">
+        <% if (movie.genres) { %>
+          <% const genreList = typeof movie.genres === 'string' ? movie.genres.split(',') : movie.genres; %>
+          <% genreList.slice(0, 3).forEach(function (genre) { %>
+            <span class="genre-badge"><%= genre.trim() %></span>
+          <% }); %>
+          <% if (genreList.length > 3) { %>
+            <span class="genre-badge">+<%= genreList.length - 3 %></span>
+          <% } %>
         <% } %>
-      <% } %>
+      </div>
+      
+      <div class="movie-meta mb-2">
+        <% if (movie.runtime) { %>
+          <span class="me-3"><i class="fas fa-clock movie-info-icon"></i><%= movie.runtime %> min</span>
+        <% } %>
+        <% if (movie.popularity) { %>
+          <span><i class="fas fa-fire movie-info-icon"></i><%= parseFloat(movie.popularity).toFixed(1) %></span>
+        <% } %>
+      </div>
+      
+      <button class="btn btn-primary btn-sm w-100" onclick="viewMovieDetails('<%= movie.movie_id %>')">
+        <i class="fas fa-info-circle me-1"></i>View Details
+      </button>
     </div>
-    <div class="movie-meta mb-2">
-      <% if (movie.runtime) { %>
-        <span class="me-3"><i class="fas fa-clock movie-info-icon"></i><%= movie.runtime %> min</span>
-      <% } %>
-      <% if (movie.popularity) { %>
-        <span><i class="fas fa-fire movie-info-icon"></i><%= parseFloat(movie.popularity).toFixed(1) %></span>
-      <% } %>
-    </div>
-    <button class="btn btn-primary btn-sm w-100" onclick="viewMovieDetails('<%= movie.movie_id %>')">
-      <i class="fas fa-info-circle me-1"></i>View Details
-    </button>
   </div>
 </div>

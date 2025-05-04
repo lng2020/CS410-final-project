@@ -193,3 +193,120 @@ body {
   background-color: #161b22;
   border-bottom: 2px solid #58a6ff;
 }
+
+/* Card structure improvements for similar movies */
+.movie-card {
+  background-color: #21262d;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  border: 1px solid #30363d;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Title area */
+.movie-title {
+  color: #58a6ff;
+  font-weight: 600;
+  margin-bottom: 8px;
+  min-height: 40px; /* Provide consistent space for title */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Push content to bottom */
+.card-bottom-content {
+  margin-top: auto;
+}
+
+.genre-badges {
+  margin-bottom: 10px;
+}
+
+/* Movie details page specific improvements */
+.movie-detail-card {
+  background-color: #21262d;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+}
+
+.movie-detail-card .card-header {
+  background-color: #161b22;
+  border-bottom: 1px solid #30363d;
+  padding: 1rem;
+}
+
+.breadcrumb {
+  background-color: transparent;
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-item a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.breadcrumb-item.active {
+  color: #8b949e;
+}
+
+.similar-movies-section h4 {
+  color: #e6edf3;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 0.75rem;
+}
+
+/* Improved badge styles */
+.genre-badge {
+  background-color: #0d6efd;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+/* Overview text in similar movie cards */
+.overview-text {
+  font-size: 0.9rem;
+  color: #8b949e;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 12px;
+  min-height: 54px; /* Approximately 3 lines of text */
+}
+
+/* Better button styles */
+.btn-outline-primary {
+  color: #58a6ff;
+  border-color: #58a6ff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #58a6ff;
+  color: #0d1117;
+}
