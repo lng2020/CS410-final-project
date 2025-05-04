@@ -1,3 +1,4 @@
+const { parse } = require('dotenv');
 const express = require('express');
 const router = express.Router();
 const weaviate = require("weaviate-client");
@@ -22,7 +23,7 @@ router.get('/:id', async (req, res) => {
       .withWhere({
         path: ["movie_id"],
         operator: "Equal",
-        valueNumber: parseInt(id)
+        valueNumber: parseInt(movieId)
       })
       .do();
     
@@ -40,7 +41,7 @@ router.get('/:id', async (req, res) => {
       .withClassName('Movies')
       .withFields(['movie_id', 'title', 'genres', 'overview', 'popularity', 'runtime', 'tagline'])
       .withNearObject({
-        movie_id: movieId,
+        movie_id: parseInt(movieId),
         certainty: 0.7
       })
       .withLimit(6)

@@ -190,7 +190,7 @@ async function importData() {
         return {
           class: collectionName,
           properties: {
-            movie_id: parseFloat(movie["id"]),
+            movie_id: parseInt(movie["id"]),
             title: movie["original_title"],
             genres: movie["genres"],
             overview: movie["overview"],

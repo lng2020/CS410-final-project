@@ -1,3 +1,4 @@
+const { parse } = require('dotenv');
 const express = require('express');
 const router = express.Router();
 const weaviate = require("weaviate-client");
@@ -22,7 +23,7 @@ router.get('/similar/:id', async (req, res) => {
       .withWhere({
         path: ["movie_id"],
         operator: "Equal",
-        valueString: movieId
+        valueNumber: parseInt(movieId)
       })
       .do();
     
@@ -61,7 +62,7 @@ router.get('/movies/:id', async (req, res) => {
       .withWhere({
         path: ["movie_id"],
         operator: "Equal",
-        valueString: movieId
+        valueNumber: parseInt(movieId)
       })
       .do();
     

@@ -117,18 +117,7 @@ if (searchText && searchText.trim() !== '') {
     
     const filter = buildFilter(req.body);
     if (filter) {
-      if (searchType !== 'semantic' || !searchText || searchText.trim() === '') {
-        query = query.withWhere(filter);
-      } else {
-        query = query.withNearText({
-          concepts: [searchText],
-          certainty: 0.7,
-          moveTo: {
-            force: 0.2,
-            concepts: ["movie"]
-          }
-        }).withWhere(filter);
-      }
+      query = query.withWhere(filter);
     }
     
     if (sort === 'popularity') {
