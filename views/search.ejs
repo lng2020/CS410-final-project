@@ -100,9 +100,6 @@
           <% movie_info.forEach(function(movie) { %>
             <div class="col">
               <div class="movie-card">
-                <div class="card-img-top d-flex align-items-center justify-content-center">
-                  <i class="fas fa-film fa-3x text-secondary"></i>
-                </div>
                 <div class="card-body">
                   <h5 class="movie-title"><%= movie.title %></h5>
                   
@@ -220,12 +217,12 @@
           <nav>
             <ul class="pagination justify-content-center">
               <li class="page-item <%= pagination.currentPage === 1 ? 'disabled' : '' %>">
-                <a class="page-link" href="#" onclick="changePage(pagination.currentPage - 1)">Previous</a>
+                <a class="page-link" href="#" onclick="changePage('<%= pagination.currentPage - 1 %>'); return false;">Previous</a>
               </li>
               
               <% for(let i = 1; i <= Math.min(pagination.totalPages, 5); i++) { %>
                 <li class="page-item <%= pagination.currentPage === i ? 'active' : '' %>">
-                  <a class="page-link" href="#" onclick="changePage(i)"><%= i %></a>
+                  <a class="page-link" href="#" onclick="changePage('<%= i %>'); return false;"><%= i %></a>
                 </li>
               <% } %>
               
@@ -234,12 +231,12 @@
                   <span class="page-link">...</span>
                 </li>
                 <li class="page-item">
-                  <a class="page-link" href="#" onclick="changePage(pagination.totalPages)"><%= pagination.totalPages %></a>
+                  <a class="page-link" href="#" onclick="changePage('<%= pagination.totalPages %>'); return false;"><%= pagination.totalPages %></a>
                 </li>
               <% } %>
               
               <li class="page-item <%= pagination.currentPage === pagination.totalPages ? 'disabled' : '' %>">
-                <a class="page-link" href="#" onclick="changePage(pagination.currentPage + 1)">Next</a>
+                <a class="page-link" href="#" onclick="changePage('<%= pagination.currentPage + 1 %>'); return false;">Next</a>
               </li>
             </ul>
           </nav>

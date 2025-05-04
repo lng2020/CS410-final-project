@@ -121,7 +121,7 @@ router.post('/recommendations', async (req, res) => {
       .withFields(['movie_id', 'title', 'genres', 'overview', 'popularity', 'runtime', 'tagline', 'cast', 'director'])
       .withNearText({
         concepts: concepts.map(c => c.concept),
-        certainty: 0.6
+        certainty: 0.7
       })
       .withLimit(10)
       .do();
