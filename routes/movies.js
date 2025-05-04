@@ -41,12 +41,11 @@ router.get('/:id', async (req, res) => {
       .withClassName('Movies')
       .withFields(['movie_id', 'title', 'genres', 'overview', 'popularity', 'runtime', 'tagline'])
       .withNearObject({
-        movie_id: parseInt(movieId),
+        id: movie._additional.id,
         certainty: 0.7
       })
       .withLimit(6)
       .do();
-    
     const similarMovies = similarQuery.data.Get.Movies;
     
     res.render('movie', {

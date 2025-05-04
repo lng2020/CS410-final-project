@@ -38,7 +38,7 @@ router.get('/similar/:id', async (req, res) => {
       .withClassName('Movies')
       .withFields(['movie_id', 'title', 'genres', 'overview', 'popularity', 'runtime', 'tagline'])
       .withNearObject({
-        id: movieId,
+        id: movie._additional.id,
         certainty: 0.7
       })
       .withLimit(5)

@@ -1,7 +1,4 @@
 <div class="movie-card">
-  <div class="card-img-top d-flex align-items-center justify-content-center">
-    <i class="fas fa-film fa-3x text-secondary"></i>
-  </div>
   <div class="card-body">
     <h6 class="movie-title"><%= movie.title %></h6>
     <div class="mb-2">
@@ -23,7 +20,7 @@
         <span><i class="fas fa-fire movie-info-icon"></i><%= parseFloat(movie.popularity).toFixed(1) %></span>
       <% } %>
     </div>
-    <button class="btn btn-primary btn-sm w-100" onclick="viewMovieDetails('<%= movie.id %>')">
+    <button class="btn btn-primary btn-sm w-100" onclick="viewMovieDetails('<%= movie.movie_id %>')">
       <i class="fas fa-info-circle me-1"></i>View Details
     </button>
   </div>

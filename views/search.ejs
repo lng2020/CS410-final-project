@@ -220,12 +220,12 @@
           <nav>
             <ul class="pagination justify-content-center">
               <li class="page-item <%= pagination.currentPage === 1 ? 'disabled' : '' %>">
-                <a class="page-link" href="#" onclick="changePage(<%= pagination.currentPage - 1 %>)">Previous</a>
+                <a class="page-link" href="#" onclick="changePage(pagination.currentPage - 1)">Previous</a>
               </li>
               
               <% for(let i = 1; i <= Math.min(pagination.totalPages, 5); i++) { %>
                 <li class="page-item <%= pagination.currentPage === i ? 'active' : '' %>">
-                  <a class="page-link" href="#" onclick="changePage(<%= i %>)"><%= i %></a>
+                  <a class="page-link" href="#" onclick="changePage(i)"><%= i %></a>
                 </li>
               <% } %>
               
@@ -234,12 +234,12 @@
                   <span class="page-link">...</span>
                 </li>
                 <li class="page-item">
-                  <a class="page-link" href="#" onclick="changePage(<%= pagination.totalPages %>)"><%= pagination.totalPages %></a>
+                  <a class="page-link" href="#" onclick="changePage(pagination.totalPages)"><%= pagination.totalPages %></a>
                 </li>
               <% } %>
               
               <li class="page-item <%= pagination.currentPage === pagination.totalPages ? 'disabled' : '' %>">
-                <a class="page-link" href="#" onclick="changePage(<%= pagination.currentPage + 1 %>)">Next</a>
+                <a class="page-link" href="#" onclick="changePage(pagination.currentPage + 1)">Next</a>
               </li>
             </ul>
           </nav>

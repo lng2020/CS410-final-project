@@ -13,7 +13,7 @@ function getSimilarMovies(movieId, containerId) {
           html += '<div class="list-group list-group-flush">';
           data.forEach(movie => {
             html += `
-              <a href="/movies/${movie.id}" class="list-group-item list-group-item-action">
+              <a href="/movies/${movie.movie_id}" class="list-group-item list-group-item-action">
                 <div class="d-flex justify-content-between align-items-center">
                   <div>
                     <h6 class="mb-0">${movie.title}</h6>
